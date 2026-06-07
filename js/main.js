@@ -45,8 +45,8 @@
   // ---------- Email Obfuscation ----------
   // Email is built from parts so bots can't scrape it from HTML source
   const emailParts = {
-    user: 'bjorn.claessens',
-    domain: 'gmail',
+    user: 'info',
+    domain: 'bjornclaessens',
     tld: 'com'
   };
 
