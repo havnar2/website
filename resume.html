@@ -1,0 +1,1062 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bjorn Claessens | Senior Data Engineer</title>
+  <meta name="description" content="Resume of Bjorn Claessens, Senior Data Engineer specializing in distributed systems and real-time data pipelines.">
+  <style>
+    :root {
+      --bg: #fafaf9;
+      --card: #ffffff;
+      --text: #1c1c1c;
+      --secondary: #6b6b6b;
+      --primary: #171717;
+      --accent: #c4663a;
+      --sidebar-top: #f4f4f4;
+      --sidebar-bottom: #ebebeb;
+      --border: #e0e0e0;
+      --shadow: 0 28px 60px rgba(23, 23, 23, 0.10);
+      --badge-bg: rgba(196, 102, 58, 0.08);
+      --badge-text: #9f4f2c;
+      --button-bg: rgba(255, 255, 255, 0.9);
+      --button-border: rgba(28, 28, 28, 0.12);
+    }
+
+    [data-theme="dark"] {
+      --bg: #1a1f2e;
+      --card: #222838;
+      --text: #e8e4dc;
+      --secondary: #9a9590;
+      --primary: #c4663a;
+      --accent: #c4663a;
+      --sidebar-top: #1a1f2e;
+      --sidebar-bottom: #222838;
+      --border: #2e3548;
+      --shadow: 0 28px 60px rgba(0, 0, 0, 0.35);
+      --badge-bg: rgba(196, 102, 58, 0.16);
+      --badge-text: #f2cab7;
+      --button-bg: rgba(34, 40, 56, 0.92);
+      --button-border: rgba(232, 228, 220, 0.14);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(196, 102, 58, 0.10), transparent 24%),
+        radial-gradient(circle at bottom right, rgba(23, 23, 23, 0.06), transparent 28%),
+        var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      transition: background-color 0.25s ease, color 0.25s ease;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+      height: auto;
+    }
+
+    .page {
+      width: min(100%, 1024px);
+      margin: 0 auto;
+      padding: 32px 20px 48px;
+    }
+
+    .page-controls {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 18px;
+    }
+
+    .control-button {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      min-height: 44px;
+      padding: 0 16px;
+      border: 1px solid var(--button-border);
+      border-radius: 999px;
+      background: var(--button-bg);
+      color: var(--text);
+      font-size: 0.9rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      box-shadow: 0 10px 28px rgba(0, 0, 0, 0.08);
+      cursor: pointer;
+      transition: transform 0.2s ease, border-color 0.2s ease, background-color 0.2s ease;
+    }
+
+    .control-button:hover {
+      transform: translateY(-1px);
+      border-color: var(--accent);
+    }
+
+    .control-button svg {
+      width: 18px;
+      height: 18px;
+      flex: 0 0 auto;
+    }
+
+    .theme-toggle .icon-sun {
+      display: none;
+    }
+
+    [data-theme="dark"] .theme-toggle .icon-moon {
+      display: none;
+    }
+
+    [data-theme="dark"] .theme-toggle .icon-sun {
+      display: block;
+    }
+
+    .resume-card {
+      display: grid;
+      grid-template-columns: minmax(280px, 0.38fr) minmax(0, 0.62fr);
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 30px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+
+    .sidebar {
+      padding: 34px 30px;
+      background: linear-gradient(180deg, var(--sidebar-top) 0%, var(--sidebar-bottom) 100%);
+      border-right: 1px solid var(--border);
+    }
+
+    .main-content {
+      padding: 34px 34px 36px;
+    }
+
+    .photo-frame {
+      width: 128px;
+      height: 128px;
+      margin: 0 auto 22px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 4px solid rgba(255, 255, 255, 0.75);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+      background: #ddd;
+    }
+
+    .photo-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    .sidebar-section + .sidebar-section,
+    .content-section + .content-section {
+      margin-top: 28px;
+    }
+
+    .section-kicker {
+      display: inline-block;
+      margin-bottom: 14px;
+      padding-bottom: 8px;
+      border-bottom: 2px solid var(--accent);
+      color: var(--primary);
+      font-size: 0.76rem;
+      font-weight: 800;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+
+    .contact-list {
+      display: grid;
+      gap: 12px;
+    }
+
+    .contact-item {
+      display: grid;
+      grid-template-columns: 18px 1fr;
+      gap: 12px;
+      align-items: start;
+      color: var(--secondary);
+      font-size: 0.92rem;
+    }
+
+    .contact-item svg {
+      width: 18px;
+      height: 18px;
+      color: var(--accent);
+      margin-top: 2px;
+    }
+
+    .contact-item a:hover {
+      color: var(--accent);
+    }
+
+    .skill-group + .skill-group {
+      margin-top: 18px;
+    }
+
+    .skill-group h3 {
+      margin: 0 0 9px;
+      font-size: 0.9rem;
+      color: var(--text);
+    }
+
+    .language-list,
+    .text-list {
+      display: grid;
+      gap: 8px;
+      color: var(--secondary);
+      font-size: 0.9rem;
+    }
+
+    .badge-wrap {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      min-height: 30px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: var(--badge-bg);
+      color: var(--badge-text);
+      font-size: 0.82rem;
+      font-weight: 700;
+      line-height: 1.3;
+    }
+
+    .hobbies-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .hobby-card {
+      padding: 10px 12px;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.4);
+      color: var(--text);
+      font-size: 0.86rem;
+      font-weight: 600;
+      text-align: center;
+    }
+
+    .resume-header {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .resume-header h1 {
+      margin: 0;
+      font-size: clamp(2rem, 4vw, 2.7rem);
+      line-height: 1.05;
+      font-weight: 900;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    .resume-header .title {
+      margin-top: 8px;
+      color: var(--secondary);
+      font-size: 0.92rem;
+      font-weight: 800;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+    }
+
+    .resume-header .subtitle {
+      max-width: 560px;
+      margin: 16px auto 0;
+      color: var(--accent);
+      font-size: 0.95rem;
+      line-height: 1.75;
+    }
+
+    .experience-list,
+    .education-list {
+      display: grid;
+      gap: 18px;
+    }
+
+    details.experience-item {
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      background: rgba(255, 255, 255, 0.55);
+      overflow: hidden;
+    }
+
+    [data-theme="dark"] details.experience-item {
+      background: rgba(26, 31, 46, 0.45);
+    }
+
+    details.experience-item.highlighted {
+      border-left: 4px solid var(--accent);
+    }
+
+    .experience-summary {
+      list-style: none;
+      cursor: pointer;
+      padding: 18px 20px 16px;
+    }
+
+    .experience-summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .summary-top {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 12px;
+      align-items: start;
+    }
+
+    .role {
+      margin: 0;
+      font-size: 1rem;
+      font-weight: 800;
+      line-height: 1.4;
+      color: var(--text);
+    }
+
+    .company {
+      color: var(--accent);
+    }
+
+    .period {
+      color: var(--secondary);
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      text-align: right;
+    }
+
+    .summary-description {
+      margin: 10px 0 0;
+      color: var(--secondary);
+      font-size: 0.9rem;
+    }
+
+    .summary-meta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin-top: 14px;
+    }
+
+    .tech-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .toggle-hint {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--secondary);
+      font-size: 0.82rem;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .toggle-hint svg {
+      width: 15px;
+      height: 15px;
+      transition: transform 0.2s ease;
+    }
+
+    details[open] .toggle-hint .chevron {
+      transform: rotate(90deg);
+    }
+
+    details[open] .toggle-copy-open,
+    details:not([open]) .toggle-copy-closed {
+      display: none;
+    }
+
+    .experience-details {
+      padding: 0 20px 20px;
+      color: var(--secondary);
+      font-size: 0.9rem;
+    }
+
+    .detail-block + .detail-block {
+      margin-top: 14px;
+    }
+
+    .detail-label {
+      display: block;
+      margin-bottom: 6px;
+      color: var(--text);
+      font-weight: 700;
+    }
+
+    .detail-list {
+      margin: 0;
+      padding-left: 18px;
+    }
+
+    .detail-list li + li {
+      margin-top: 6px;
+    }
+
+    .education-item {
+      padding: 18px 20px;
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      background: rgba(255, 255, 255, 0.55);
+    }
+
+    [data-theme="dark"] .education-item {
+      background: rgba(26, 31, 46, 0.45);
+    }
+
+    .education-top {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 12px;
+      align-items: start;
+    }
+
+    .education-degree {
+      margin: 0;
+      font-size: 0.98rem;
+      font-weight: 800;
+      line-height: 1.45;
+    }
+
+    .education-school {
+      color: var(--accent);
+    }
+
+    .education-period {
+      color: var(--secondary);
+      font-size: 0.82rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      text-align: right;
+    }
+
+    .education-note {
+      margin-top: 10px;
+      color: var(--secondary);
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 768px) {
+      .page {
+        padding: 20px 12px 32px;
+      }
+
+      .page-controls {
+        margin-bottom: 14px;
+      }
+
+      .control-button {
+        min-height: 40px;
+        padding: 0 14px;
+        font-size: 0.84rem;
+      }
+
+      .resume-card {
+        grid-template-columns: 1fr;
+        border-radius: 24px;
+      }
+
+      .sidebar {
+        border-right: 0;
+        border-bottom: 1px solid var(--border);
+      }
+
+      .sidebar,
+      .main-content {
+        padding: 26px 22px;
+      }
+
+      .summary-top,
+      .education-top {
+        grid-template-columns: 1fr;
+      }
+
+      .period,
+      .education-period {
+        text-align: left;
+      }
+
+      .summary-meta {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+
+    @media print {
+      :root,
+      html,
+      [data-theme="dark"] {
+        --bg: #fafaf9;
+        --card: #ffffff;
+        --text: #1c1c1c;
+        --secondary: #6b6b6b;
+        --primary: #171717;
+        --accent: #c4663a;
+        --sidebar-top: #f4f4f4;
+        --sidebar-bottom: #ebebeb;
+        --border: #e0e0e0;
+        --shadow: none;
+        --badge-bg: rgba(196, 102, 58, 0.08);
+        --badge-text: #9f4f2c;
+      }
+
+      @page {
+        size: A4;
+        margin: 10mm;
+      }
+
+      body {
+        background: #ffffff;
+      }
+
+      .page {
+        width: 100%;
+        max-width: none;
+        padding: 0;
+      }
+
+      .resume-card {
+        border: 1px solid #ddd;
+        border-radius: 0;
+        box-shadow: none;
+      }
+
+      .no-print,
+      .toggle-hint {
+        display: none !important;
+      }
+
+      details,
+      .experience-item,
+      .education-item,
+      .sidebar-section,
+      .content-section {
+        break-inside: avoid;
+      }
+
+      details > summary {
+        list-style: none;
+      }
+
+      details > summary::-webkit-details-marker {
+        display: none;
+      }
+
+      details .experience-details {
+        display: block !important;
+      }
+
+      .hobby-card,
+      .education-item,
+      details.experience-item {
+        background: rgba(255, 255, 255, 0.96) !important;
+      }
+
+      img {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <div class="page-controls no-print">
+      <a class="control-button" href="resume.pdf" download>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M12 3v12"></path>
+          <path d="M7 10l5 5 5-5"></path>
+          <path d="M5 21h14"></path>
+        </svg>
+        <span>Download PDF</span>
+      </a>
+      <button class="control-button theme-toggle" type="button" aria-label="Toggle theme" title="Toggle dark/light mode">
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="12" cy="12" r="5"></circle>
+          <path d="M12 1v2"></path>
+          <path d="M12 21v2"></path>
+          <path d="M4.22 4.22l1.42 1.42"></path>
+          <path d="M18.36 18.36l1.42 1.42"></path>
+          <path d="M1 12h2"></path>
+          <path d="M21 12h2"></path>
+          <path d="M4.22 19.78l1.42-1.42"></path>
+          <path d="M18.36 5.64l1.42-1.42"></path>
+        </svg>
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3c0 0-1.4 6 2.3 9.7S21 12.79 21 12.79z"></path>
+        </svg>
+      </button>
+    </div>
+
+    <main class="resume-card">
+      <aside class="sidebar">
+        <div class="photo-frame">
+          <img src="assets/photo.jpg" alt="Bjorn Claessens">
+        </div>
+
+        <section class="sidebar-section">
+          <div class="section-kicker">Contact</div>
+          <div class="contact-list">
+            <div class="contact-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="3" y="5" width="18" height="14" rx="2"></rect>
+                <path d="M3 7l9 6 9-6"></path>
+              </svg>
+              <a href="mailto:bjorn.claessens@gmail.com">bjorn.claessens@gmail.com</a>
+            </div>
+            <div class="contact-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.9.35 1.77.68 2.61a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.47-1.25a2 2 0 0 1 2.11-.45c.84.33 1.71.56 2.61.68A2 2 0 0 1 22 16.92z"></path>
+              </svg>
+              <a href="tel:+32472184224">+32 472 18 42 24</a>
+            </div>
+            <div class="contact-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"></path>
+                <circle cx="12" cy="10" r="3"></circle>
+              </svg>
+              <span>Vosselaar, Belgium</span>
+            </div>
+            <div class="contact-item">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M6.94 8.5A1.56 1.56 0 1 0 6.94 5.38a1.56 1.56 0 0 0 0 3.12zM5.5 9.75h2.88V18H5.5V9.75zm4.69 0h2.76v1.13h.04c.38-.73 1.33-1.5 2.74-1.5 2.93 0 3.47 1.93 3.47 4.43V18h-2.87v-3.68c0-.88-.02-2.01-1.22-2.01-1.22 0-1.41.95-1.41 1.94V18h-2.87V9.75z"></path>
+              </svg>
+              <a href="https://www.linkedin.com/in/bjorn-claessens/" target="_blank" rel="noreferrer">Bjorn Claessens</a>
+            </div>
+          </div>
+        </section>
+
+        <section class="sidebar-section">
+          <div class="section-kicker">Skills</div>
+
+          <div class="skill-group">
+            <h3>Languages</h3>
+            <div class="language-list">
+              <span>Dutch: Native</span>
+              <span>English: Professional</span>
+            </div>
+          </div>
+
+          <div class="skill-group">
+            <h3>Big Data &amp; Cloud</h3>
+            <div class="badge-wrap">
+              <span class="badge">PySpark</span>
+              <span class="badge">Kafka</span>
+              <span class="badge">Eventhub</span>
+              <span class="badge">AWS</span>
+              <span class="badge">Azure</span>
+              <span class="badge">Databricks</span>
+              <span class="badge">Snowflake</span>
+              <span class="badge">Unity Catalog</span>
+              <span class="badge">Hadoop</span>
+              <span class="badge">Cloudera</span>
+              <span class="badge">Airflow</span>
+              <span class="badge">Kubernetes</span>
+            </div>
+          </div>
+
+          <div class="skill-group">
+            <h3>Languages &amp; Scripting</h3>
+            <div class="badge-wrap">
+              <span class="badge">Python</span>
+              <span class="badge">Scala</span>
+              <span class="badge">Java</span>
+              <span class="badge">SQL</span>
+              <span class="badge">Bash</span>
+            </div>
+          </div>
+
+          <div class="skill-group">
+            <h3>DevOps &amp; Tools</h3>
+            <div class="badge-wrap">
+              <span class="badge">Linux</span>
+              <span class="badge">Wsl</span>
+              <span class="badge">Git</span>
+              <span class="badge">CI/CD</span>
+              <span class="badge">Azure DevOps</span>
+              <span class="badge">Jenkins</span>
+              <span class="badge">Puppet</span>
+              <span class="badge">Terraform</span>
+              <span class="badge">Docker</span>
+              <span class="badge">Copilot</span>
+              <span class="badge">Mistral</span>
+              <span class="badge">Local LLMs</span>
+            </div>
+          </div>
+
+          <div class="skill-group">
+            <h3>Methodologies &amp; Soft Skills</h3>
+            <div class="text-list">
+              <span>Agile (SAFe), Scrum, Team Leadership, Cross-team Collaboration</span>
+              <span>Technical Mentorship, Problem Solving, Effective Communication</span>
+              <span>Pragmatic Approach to Complexity</span>
+            </div>
+          </div>
+        </section>
+
+        <section class="sidebar-section">
+          <div class="section-kicker">Hobbies</div>
+          <div class="hobbies-grid">
+            <div class="hobby-card">Automation</div>
+            <div class="hobby-card">Technology</div>
+            <div class="hobby-card">Cars</div>
+            <div class="hobby-card">Reading</div>
+            <div class="hobby-card">Personal Finance</div>
+            <div class="hobby-card">AI</div>
+          </div>
+        </section>
+      </aside>
+
+      <section class="main-content">
+        <header class="resume-header">
+          <h1>Bjorn Claessens</h1>
+          <div class="title">Senior Data Engineer</div>
+          <p class="subtitle">Senior Data Engineer specializing in distributed systems and real-time data pipelines. Passionate about building scalable data platforms that power enterprise decision-making.</p>
+        </header>
+
+        <section class="content-section">
+          <div class="section-kicker">Professional Experience</div>
+          <div class="experience-list">
+            <details class="experience-item highlighted" open>
+              <summary class="experience-summary">
+                <div class="summary-top">
+                  <h2 class="role">Freelance Data Engineer <span class="company">@ ASML</span></h2>
+                  <div class="period">04/2023 - Present</div>
+                </div>
+                <p class="summary-description">Data engineering for complex machine data processing.</p>
+                <div class="summary-meta">
+                  <div class="tech-list">
+                    <span class="badge">PySpark</span>
+                    <span class="badge">Python</span>
+                    <span class="badge">Azure</span>
+                    <span class="badge">Snowflake</span>
+                    <span class="badge">Databricks</span>
+                    <span class="badge">Kubernetes</span>
+                    <span class="badge">Azure DevOps</span>
+                    <span class="badge">Linux</span>
+                  </div>
+                  <span class="toggle-hint">
+                    <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <path d="M9 18l6-6-6-6"></path>
+                    </svg>
+                    <span class="toggle-copy-open">less</span>
+                    <span class="toggle-copy-closed">more...</span>
+                  </span>
+                </div>
+              </summary>
+              <div class="experience-details">
+                <div class="detail-block">
+                  <span class="detail-label">Context</span>
+                  <div>Eindhoven, NL - Freelance role within ASML's data migration art.</div>
+                </div>
+                <div class="detail-block">
+                  <span class="detail-label">Tasks</span>
+                  <ul class="detail-list">
+                    <li>Complex machine data parsing using medallion architecture.</li>
+                    <li>Data engineering for real-time and batch-based solutions.</li>
+                  </ul>
+                </div>
+                <div class="detail-block">
+                  <span class="detail-label">Environment</span>
+                  <div>PySpark / Python / Scala / AWS / Snowflake / Kubernetes / Azure DevOps / Linux</div>
+                </div>
+              </div>
+            </details>
+
+            <details class="experience-item" open>
+              <summary class="experience-summary">
+                <div class="summary-top">
+                  <h2 class="role">Senior Data Engineer / Tech Lead <span class="company">@ Nike</span></h2>
+                  <div class="period">10/2019 - 04/2023</div>
+                </div>
+                <p class="summary-description">Technical lead for a data squad building scalable, reusable data pipelines.</p>
+                <div class="summary-meta">
+                  <div class="tech-list">
+                    <span class="badge">PySpark</span>
+                    <span class="badge">Hadoop</span>
+                    <span class="badge">Airflow</span>
+                    <span class="badge">AWS</span>
+                    <span class="badge">Python</span>
+                    <span class="badge">Linux</span>
+                  </div>
+                  <span class="toggle-hint">
+                    <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <path d="M9 18l6-6-6-6"></path>
+                    </svg>
+                    <span class="toggle-copy-open">less</span>
+                    <span class="toggle-copy-closed">more...</span>
+                  </span>
+                </div>
+              </summary>
+              <div class="experience-details">
+                <div class="detail-block">
+                  <span class="detail-label">Context</span>
+                  <div>Laakdal, Belgium - Senior Data Engineer and Tech Lead for a data squad within Nike.</div>
+                </div>
+                <div class="detail-block">
+                  <span class="detail-label">Tasks</span>
+                  <ul class="detail-list">
+                    <li>Built scalable and reusable data pipelines to provide foundational data aligned to a global data model.</li>
+                    <li>Core commit to an inner-sourced ETL framework built on PySpark, infrastructure as code, and metadata-driven patterns.</li>
+                    <li>Defined and upheld squad best practices as technical lead.</li>
+                    <li>Ran proofs of concept for new technology stacks and solution patterns.</li>
+                    <li>Contributed to communities of practice and architectural decision making.</li>
+                    <li>Drove cross-team data integrations.</li>
+                  </ul>
+                </div>
+                <div class="detail-block">
+                  <span class="detail-label">Environment</span>
+                  <div>PySpark / Kafka / Hadoop / Airflow / Azure / Python / Linux</div>
+                </div>
+              </div>
+            </details>
+
+            <details class="experience-item" open>
+              <summary class="experience-summary">
+                <div class="summary-top">
+                  <h2 class="role">Big Data Consultant <span class="company">@ Dynapps N.V. (client Johnson &amp; Johnson)</span></h2>
+                  <div class="period">04/2016 - 10/2019</div>
+                </div>
+                <p class="summary-description">Consultancy for Big Data projects - ETL at scale (batch and NRT).</p>
+                <div class="summary-meta">
+                  <div class="tech-list">
+                    <span class="badge">Kafka</span>
+                    <span class="badge">Hadoop</span>
+                    <span class="badge">Scala</span>
+                    <span class="badge">Python</span>
+                    <span class="badge">Linux</span>
+                  </div>
+                  <span class="toggle-hint">
+                    <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <path d="M9 18l6-6-6-6"></path>
+                    </svg>
+                    <span class="toggle-copy-open">less</span>
+                    <span class="toggle-copy-closed">more...</span>
+                  </span>
+                </div>
+              </summary>
+              <div class="experience-details">
+                <div class="detail-block">
+                  <span class="detail-label">Context</span>
+                  <div>Geel / Beerse, Belgium - Consulting role at Dynapps working with Johnson &amp; Johnson on large-scale Big Data projects.</div>
+                </div>
+                <div class="detail-block">
+                  <span class="detail-label">Tasks</span>
+                  <ul class="detail-list">
+                    <li>Built ETL at scale across batch and near-real-time workloads.</li>
+                    <li>Worked on machine learning pilots.</li>
+                    <li>Supported AB deployment of datasets.</li>
+                    <li>Contributed to cost management across the platform.</li>
+                  </ul>
+                </div>
+                <div class="detail-block">
+                  <span class="detail-label">Environment</span>
+                  <div>Hadoop / Python / Linux</div>
+                </div>
+              </div>
+            </details>
+
+            <details class="experience-item" open>
+              <summary class="experience-summary">
+                <div class="summary-top">
+                  <h2 class="role">Big Data Consultant <span class="company">@ Cronos</span></h2>
+                  <div class="period">07/2014 - 03/2016</div>
+                </div>
+                <p class="summary-description">Development, Operations &amp; DevOps consultancy for Big Data projects.</p>
+                <div class="summary-meta">
+                  <div class="tech-list">
+                    <span class="badge">Hadoop</span>
+                    <span class="badge">Cloudera</span>
+                    <span class="badge">Python</span>
+                    <span class="badge">Apache Spark</span>
+                    <span class="badge">Titan Distributed Graph</span>
+                    <span class="badge">HBase</span>
+                    <span class="badge">Solr</span>
+                    <span class="badge">MapReduce</span>
+                    <span class="badge">Java</span>
+                    <span class="badge">Linux</span>
+                  </div>
+                  <span class="toggle-hint">
+                    <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <path d="M9 18l6-6-6-6"></path>
+                    </svg>
+                    <span class="toggle-copy-open">less</span>
+                    <span class="toggle-copy-closed">more...</span>
+                  </span>
+                </div>
+              </summary>
+              <div class="experience-details">
+                <div class="detail-block">
+                  <span class="detail-label">Context</span>
+                  <div>Kontich, Belgium - Consultancy covering the full stack of Big Data project delivery. Also developed a B2B content asset management service for Belga providing a searchable, aggregated source of live news feeds, public domain media, and archives.</div>
+                </div>
+                <div class="detail-block">
+                  <span class="detail-label">Tasks</span>
+                  <ul class="detail-list">
+                    <li>Handled Cloudera cluster deployment and administration.</li>
+                    <li>Delivered DevOps support for Big Data infrastructure.</li>
+                  </ul>
+                </div>
+                <div class="detail-block">
+                  <span class="detail-label">Environment</span>
+                  <div>Hadoop / Cloudera / Apache Spark / MapReduce / Java / Linux</div>
+                </div>
+              </div>
+            </details>
+
+            <details class="experience-item" open>
+              <summary class="experience-summary">
+                <div class="summary-top">
+                  <h2 class="role">Cloudera Hadoop Cluster Administrator <span class="company">@ [Cronos] Telenet</span></h2>
+                  <div class="period">10/2014 - 03/2016</div>
+                </div>
+                <p class="summary-description">Administrator of Cloudera Hadoop cluster for Telenet, Belgium's largest cable broadband provider.</p>
+                <div class="summary-meta">
+                  <div class="tech-list">
+                    <span class="badge">Cloudera Hadoop</span>
+                    <span class="badge">Puppet</span>
+                    <span class="badge">HP ILO</span>
+                    <span class="badge">Linux</span>
+                  </div>
+                  <span class="toggle-hint">
+                    <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <path d="M9 18l6-6-6-6"></path>
+                    </svg>
+                    <span class="toggle-copy-open">less</span>
+                    <span class="toggle-copy-closed">more...</span>
+                  </span>
+                </div>
+              </summary>
+              <div class="experience-details">
+                <div class="detail-block">
+                  <span class="detail-label">Context</span>
+                  <div>Belgium - Managed enterprise Hadoop infrastructure for a major telecom provider.</div>
+                </div>
+                <div class="detail-block">
+                  <span class="detail-label">Environment</span>
+                  <div>Cloudera Hadoop / Puppet / Linux</div>
+                </div>
+              </div>
+            </details>
+
+            <details class="experience-item" open>
+              <summary class="experience-summary">
+                <div class="summary-top">
+                  <h2 class="role">First Line Service Desk Agent <span class="company">@ Hewlett Packard (HP)</span></h2>
+                  <div class="period">07/2010 - 07/2011</div>
+                </div>
+                <p class="summary-description">First line IT support and service desk operations.</p>
+                <div class="summary-meta">
+                  <div class="tech-list">
+                    <span class="badge">IT Support</span>
+                  </div>
+                  <span class="toggle-hint">
+                    <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <path d="M9 18l6-6-6-6"></path>
+                    </svg>
+                    <span class="toggle-copy-open">less</span>
+                    <span class="toggle-copy-closed">more...</span>
+                  </span>
+                </div>
+              </summary>
+              <div class="experience-details">
+                <div class="detail-block">
+                  <span class="detail-label">Role</span>
+                  <div>First line IT support and service desk operations.</div>
+                </div>
+              </div>
+            </details>
+          </div>
+        </section>
+
+        <section class="content-section">
+          <div class="section-kicker">Education</div>
+          <div class="education-list">
+            <article class="education-item">
+              <div class="education-top">
+                <h2 class="education-degree">Bachelor in Applied Informatics (Cum Laude) <span class="education-school">@ Thomas More Kempen</span></h2>
+                <div class="education-period">2011 - 2014</div>
+              </div>
+              <div class="education-note">Specialty: Internship in Beijing, China</div>
+            </article>
+
+            <article class="education-item">
+              <div class="education-top">
+                <h2 class="education-degree">Bachelor in Teaching - IT and Biology <span class="education-school">@ Thomas More Kempen</span></h2>
+                <div class="education-period">2007 - 2010</div>
+              </div>
+            </article>
+          </div>
+        </section>
+      </section>
+    </main>
+  </div>
+
+  <script>
+    (function () {
+      const html = document.documentElement;
+      const toggle = document.querySelector(".theme-toggle");
+      const storageKey = "bc-consulting-theme";
+
+      function getSystemTheme() {
+        return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+      }
+
+      function applyTheme(theme, persist) {
+        html.setAttribute("data-theme", theme);
+        if (persist) {
+          localStorage.setItem(storageKey, theme);
+        }
+      }
+
+      const savedTheme = localStorage.getItem(storageKey);
+      applyTheme(savedTheme || getSystemTheme(), false);
+
+      window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", function (event) {
+        if (!localStorage.getItem(storageKey)) {
+          applyTheme(event.matches ? "dark" : "light", false);
+        }
+      });
+
+      toggle.addEventListener("click", function () {
+        const current = html.getAttribute("data-theme") || "light";
+        applyTheme(current === "dark" ? "light" : "dark", true);
+      });
+    })();
+  </script>
+</body>
+</html>
