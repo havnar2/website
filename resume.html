@@ -5,6 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Bjorn Claessens | Senior Data Engineer</title>
   <meta name="description" content="Resume of Bjorn Claessens, Senior Data Engineer specializing in distributed systems and real-time data pipelines.">
+
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+
+  <!-- Open Graph / Social -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://bjornclaessens.com/resume.html">
+  <meta property="og:title" content="Bjorn Claessens — Senior Data Engineer">
+  <meta property="og:description" content="Senior Data Engineer specializing in distributed systems and real-time data pipelines.">
+  <meta property="og:image" content="https://bc-consulting.be/assets/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
   <style>
     :root {
       --bg: #fafaf9;
@@ -395,8 +405,8 @@
       transform: rotate(90deg);
     }
 
-    details[open] .toggle-copy-open,
-    details:not([open]) .toggle-copy-closed {
+    details[open] .toggle-copy-closed,
+    details:not([open]) .toggle-copy-open {
       display: none;
     }
 
@@ -536,11 +546,13 @@
 
       @page {
         size: A4;
-        margin: 10mm;
+        margin: 8mm 10mm;
       }
 
       body {
         background: #ffffff;
+        font-size: 9pt;
+        line-height: 1.4;
       }
 
       .page {
@@ -553,6 +565,132 @@
         border: 1px solid #ddd;
         border-radius: 0;
         box-shadow: none;
+        grid-template-columns: minmax(0, 0.25fr) minmax(0, 0.75fr);
+      }
+
+      .sidebar {
+        border-right: none;
+        padding: 10px 14px;
+      }
+
+      .main-content {
+        padding: 10px 14px;
+      }
+
+      .photo-frame {
+        width: 60px;
+        height: 60px;
+        margin-bottom: 8px;
+      }
+
+      .sidebar-section {
+        margin-top: 14px !important;
+      }
+
+      .section-kicker {
+        font-size: 7pt;
+        margin-bottom: 3px;
+      }
+
+      .contact-list {
+        gap: 2px;
+      }
+
+      .contact-item {
+        font-size: 7pt;
+      }
+
+      .skill-group h3 {
+        font-size: 7pt;
+        margin-bottom: 2px;
+      }
+
+      .language-list span {
+        font-size: 6.5pt;
+      }
+
+      .badge-wrap {
+        gap: 2px;
+      }
+
+      .badge {
+        font-size: 5.5pt;
+        padding: 1px 4px;
+      }
+
+      .text-list span {
+        font-size: 6.5pt;
+      }
+
+      .hobbies-grid {
+        display: grid !important;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2px;
+      }
+
+      .hobby-card {
+        font-size: 6pt;
+        padding: 2px;
+      }
+
+      .resume-header h1 {
+        font-size: 16pt;
+        margin-bottom: 2px;
+      }
+
+      .resume-header .title {
+        font-size: 8pt;
+      }
+
+      .resume-header .subtitle {
+        font-size: 8.5pt;
+        margin-top: 6px;
+      }
+
+      .experience-summary {
+        padding: 8px 10px;
+      }
+
+      .role {
+        font-size: 9pt;
+      }
+
+      .company {
+        font-size: 8pt;
+      }
+
+      .period {
+        font-size: 7pt;
+      }
+
+      .summary-description {
+        font-size: 8pt;
+        margin-top: 2px;
+      }
+
+      .tech-list {
+        gap: 4px;
+      }
+
+      .experience-details {
+        padding: 0 10px 8px;
+        font-size: 8pt;
+      }
+
+      .detail-label {
+        font-size: 7.5pt;
+      }
+
+      .education-degree {
+        font-size: 8.5pt;
+      }
+
+      .education-school {
+        font-size: 7.5pt;
+      }
+
+      .education-period {
+        font-size: 7pt;
       }
 
       .no-print,
@@ -596,14 +734,14 @@
 <body>
   <div class="page">
     <div class="page-controls no-print">
-      <a class="control-button" href="resume.pdf" download>
+      <button class="control-button" type="button" onclick="window.print()" aria-label="Print CV">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-          <path d="M12 3v12"></path>
-          <path d="M7 10l5 5 5-5"></path>
-          <path d="M5 21h14"></path>
+          <polyline points="6 9 6 2 18 2 18 9"></polyline>
+          <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path>
+          <rect x="6" y="14" width="12" height="8"></rect>
         </svg>
-        <span>Download PDF</span>
-      </a>
+        <span>Print CV</span>
+      </button>
       <button class="control-button theme-toggle" type="button" aria-label="Toggle theme" title="Toggle dark/light mode">
         <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
           <circle cx="12" cy="12" r="5"></circle>
@@ -636,13 +774,13 @@
                 <rect x="3" y="5" width="18" height="14" rx="2"></rect>
                 <path d="M3 7l9 6 9-6"></path>
               </svg>
-              <a href="mailto:bjorn.claessens@gmail.com">bjorn.claessens@gmail.com</a>
+              <a href="mailto:info@bjornclaessens.com">info@bjornclaessens.com</a>
             </div>
             <div class="contact-item">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                 <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.9.35 1.77.68 2.61a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.47-1.25a2 2 0 0 1 2.11-.45c.84.33 1.71.56 2.61.68A2 2 0 0 1 22 16.92z"></path>
               </svg>
-              <a href="tel:+32472184224">+32 472 18 42 24</a>
+              <span class="phone">+32 472 18 42 24</span>
             </div>
             <div class="contact-item">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -652,10 +790,18 @@
               <span>Vosselaar, Belgium</span>
             </div>
             <div class="contact-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="2" y1="12" x2="22" y2="12"></line>
+                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+              </svg>
+              <a href="https://bjornclaessens.com" target="_blank" rel="noreferrer">bjornclaessens.com</a>
+            </div>
+            <div class="contact-item">
               <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                 <path d="M6.94 8.5A1.56 1.56 0 1 0 6.94 5.38a1.56 1.56 0 0 0 0 3.12zM5.5 9.75h2.88V18H5.5V9.75zm4.69 0h2.76v1.13h.04c.38-.73 1.33-1.5 2.74-1.5 2.93 0 3.47 1.93 3.47 4.43V18h-2.87v-3.68c0-.88-.02-2.01-1.22-2.01-1.22 0-1.41.95-1.41 1.94V18h-2.87V9.75z"></path>
               </svg>
-              <a href="https://www.linkedin.com/in/bjorn-claessens/" target="_blank" rel="noreferrer">Bjorn Claessens</a>
+              <a href="https://www.linkedin.com/in/bjorn-claessens/" target="_blank" rel="noreferrer">bjorn-claessens</a>
             </div>
           </div>
         </section>
@@ -686,11 +832,8 @@
               <span class="badge">Cloudera</span>
               <span class="badge">Airflow</span>
               <span class="badge">Kubernetes</span>
+              <span class="badge">Fabric</span>
             </div>
-          </div>
-
-          <div class="skill-group">
-            <h3>Languages &amp; Scripting</h3>
             <div class="badge-wrap">
               <span class="badge">Python</span>
               <span class="badge">Scala</span>
@@ -715,6 +858,8 @@
               <span class="badge">Copilot</span>
               <span class="badge">Mistral</span>
               <span class="badge">Local LLMs</span>
+              <span class="badge">OpenAI</span>
+              <span class="badge">Codex</span>
             </div>
           </div>
 
@@ -754,8 +899,50 @@
             <details class="experience-item highlighted" open>
               <summary class="experience-summary">
                 <div class="summary-top">
+                  <h2 class="role">Freelance Data Engineer <span class="company">@ Hoppenbrouwers</span></h2>
+                  <div class="period">06/2026 - Present</div>
+                </div>
+                <p class="summary-description">Data engineering for all company data in Microsoft Fabric.</p>
+                <div class="summary-meta">
+                  <div class="tech-list">
+                    <span class="badge">PySpark</span>
+                    <span class="badge">Python</span>
+                    <span class="badge">Fabric</span>
+                    <span class="badge">Azure DevOps</span>
+                    <span class="badge">OpenAI</span>
+                  </div>
+                  <span class="toggle-hint">
+                    <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <path d="M9 18l6-6-6-6"></path>
+                    </svg>
+                    <span class="toggle-copy-open">less</span>
+                    <span class="toggle-copy-closed">more...</span>
+                  </span>
+                </div>
+              </summary>
+              <div class="experience-details">
+                <div class="detail-block">
+                  <span class="detail-label">Context</span>
+                  <div>Udenhout, NL - Freelance role building data solutions on Microsoft Fabric.</div>
+                </div>
+                <div class="detail-block">
+                  <span class="detail-label">Tasks</span>
+                  <ul class="detail-list">
+                    <li>Create, improve and migrate data pipelines.</li>
+                  </ul>
+                </div>
+                <div class="detail-block">
+                  <span class="detail-label">Environment</span>
+                  <div>PySpark / Python / Azure DevOps / OpenAI Codex</div>
+                </div>
+              </div>
+            </details>
+
+            <details class="experience-item" open>
+              <summary class="experience-summary">
+                <div class="summary-top">
                   <h2 class="role">Freelance Data Engineer <span class="company">@ ASML</span></h2>
-                  <div class="period">04/2023 - Present</div>
+                  <div class="period">04/2023 - 06/2026</div>
                 </div>
                 <p class="summary-description">Data engineering for complex machine data processing.</p>
                 <div class="summary-meta">
@@ -983,6 +1170,7 @@
                 <div class="summary-meta">
                   <div class="tech-list">
                     <span class="badge">IT Support</span>
+                    <span class="badge">ITIL</span>
                   </div>
                   <span class="toggle-hint">
                     <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
