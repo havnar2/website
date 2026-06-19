@@ -82,6 +82,10 @@
       height: auto;
     }
 
+    .print-only {
+      display: none;
+    }
+
     .page {
       width: min(100%, 1024px);
       margin: 0 auto;
@@ -561,30 +565,66 @@
         padding: 0;
       }
 
+      .print-only {
+        display: block;
+      }
+
       .resume-card {
+        display: block;
         border: 1px solid #ddd;
         border-radius: 0;
         box-shadow: none;
-        grid-template-columns: minmax(0, 0.25fr) minmax(0, 0.75fr);
       }
 
       .sidebar {
+        columns: 2;
+        column-gap: 18px;
         border-right: none;
-        padding: 10px 14px;
+        border-bottom: 1px solid #ddd;
+        padding: 10px 14px 8px;
+        background: none;
       }
 
       .main-content {
-        padding: 10px 14px;
+        padding: 10px 14px 12px;
+      }
+
+      .main-content .resume-header {
+        display: none;
+      }
+
+      .print-only.resume-header {
+        margin-bottom: 0;
+        padding: 0 14px 8px;
+        border: 1px solid #ddd;
+        border-bottom: none;
+      }
+
+      .print-only.resume-header .subtitle {
+        max-width: none;
       }
 
       .photo-frame {
-        width: 60px;
-        height: 60px;
-        margin-bottom: 8px;
+        display: inline-block;
+        width: 56px;
+        height: 56px;
+        margin: 0 0 8px;
+        break-inside: avoid;
       }
 
       .sidebar-section {
-        margin-top: 14px !important;
+        display: inline-block;
+        width: 100%;
+        margin: 0 0 10px !important;
+        break-inside: avoid;
+      }
+
+      .hobbies-section {
+        display: none;
+      }
+
+      .content-section + .content-section {
+        margin-top: 18px;
       }
 
       .section-kicker {
@@ -701,9 +741,12 @@
       details,
       .experience-item,
       .education-item,
-      .sidebar-section,
-      .content-section {
+      .sidebar-section {
         break-inside: avoid;
+      }
+
+      .content-section {
+        break-inside: auto;
       }
 
       details > summary {
@@ -759,6 +802,12 @@
         </svg>
       </button>
     </div>
+
+    <header class="resume-header print-only">
+      <h1>Bjorn Claessens</h1>
+      <div class="title">Senior Data Engineer</div>
+      <p class="subtitle">Senior Data Engineer specializing in distributed systems and real-time data pipelines. Passionate about building scalable data platforms that power enterprise decision-making.</p>
+    </header>
 
     <main class="resume-card">
       <aside class="sidebar">
@@ -873,7 +922,7 @@
           </div>
         </section>
 
-        <section class="sidebar-section">
+        <section class="sidebar-section hobbies-section">
           <div class="section-kicker">Hobbies</div>
           <div class="hobbies-grid">
             <div class="hobby-card">Automation</div>
